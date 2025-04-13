@@ -73,14 +73,14 @@ header a.button:hover {
 }
 
 #produtos {
-  background: url('../imagens/bg3.webp') no-repeat center center;
+  background: url('../imagens/bg3.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
 }
 
 #contato {
-  background: url('../imagens/bg4.webp') no-repeat center center;
+  background: url('../imagens/bg4.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
