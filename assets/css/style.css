@@ -72,7 +72,23 @@ header a.button:hover {
   color: #fff;
 }
 
-#beneficios h2, #beneficios ul {
+#produtos {
+  background: url('../imagens/bg3.webp') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+#contato {
+  background: url('../imagens/bg4.webp') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+#beneficios h2, #beneficios ul,
+#produtos h2, #produtos p,
+#contato h2, #contato p {
   text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
