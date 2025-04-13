@@ -2,92 +2,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imunidade Fortalecida - Transfer Factor</title>
+  <title>Imunidade Fortalecida - 4Life</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('https://images.unsplash.com/photo-1599058918140-7b90e5c8c015?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      text-align: center;
-      min-height: 100vh;
-    }.container {
-  max-width: 800px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      scroll-behavior: smooth;
+      color: #333;
+      background-color: #fff;
+    }header, section, footer {
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
-h1 {
-  font-size: 2.5rem;
+header {
+  background: url('https://images.unsplash.com/photo-1599058918140-7b90e5c8c015?auto=format&fit=crop&w=1650&q=80') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+header h1 {
+  font-size: 2.4rem;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
-p.subtitle {
+header p {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+header a.button {
+  background-color: #25d366;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+section:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 ul {
-  text-align: left;
-  list-style: disc;
-  padding-left: 1.5rem;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #25d366;
-  color: white;
-  padding: 1rem 2rem;
+  list-style: none;
+  padding: 0;
   font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease;
+  line-height: 2rem;
 }
 
-.cta-button:hover {
-  background-color: #1ebd5a;
+.product-card {
+  display: block;
+  margin: 2rem auto;
+  max-width: 320px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
 }
 
-.product-image {
-  margin-top: 2rem;
-  max-width: 150px;
+.product-card img {
+  width: 100%;
+}
+
+.product-card h3 {
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.product-card p {
+  padding: 0 1rem 1rem 1rem;
+  font-size: 0.95rem;
+  color: #666;
 }
 
 footer {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #ddd;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 3.5rem;
+  }
+
+  .product-card {
+    display: inline-block;
+    width: 280px;
+    margin: 1rem;
+  }
 }
 
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Aumente a inteligência do seu sistema imunológico com Transfer Factor</h1>
-    <p class="subtitle">Suplementos com Fatores de Transferência 4Life — qualidade, confiança e ciência.</p><ul>
-  <li>Apoio nutricional ao sistema imunológico</li>
-  <li>Energia natural para o seu dia</li>
-  <li>Zero açúcar, aprovado pela ANVISA</li>
-  <li>100% natural, com colostro bovino e ingredientes premium</li>
-</ul>
+  <header id="inicio">
+    <h1>Fortaleça sua imunidade com ciência</h1>
+    <p>Suplementos com Fatores de Transferência para uma vida mais saudável.</p>
+    <a class="button" href="#contato">Quero saber mais</a>
+  </header>  <section id="beneficios">
+    <h2>Benefícios Exclusivos</h2>
+    <ul>
+      <li>Ativa o sistema imunológico de forma inteligente</li>
+      <li>Promove energia natural e vitalidade</li>
+      <li>Zero açúcar, fórmula avançada registrada na ANVISA</li>
+      <li>Ingredientes premium, colostro bovino e nanotecnologia</li>
+    </ul>
+  </section>  <section id="produtos">
+    <h2>Conheça os Suplementos</h2><div class="product-card">
+  <img src="https://i.ibb.co/4VRKTVM/transfer-factor-pot.png" alt="Transfer Factor Plus">
+  <h3>Transfer Factor Plus</h3>
+  <p>Suporte reforçado com blend exclusivo 4Life para imunidade diária.</p>
+</div>
 
-<a class="cta-button" href="https://wa.me/5533998103853?text=Ol%C3%A1%2C+vi+seu+site+e+quero+saber+mais+sobre+os+produtos+da+4Life%21" target="_blank">Falar no WhatsApp</a>
+<div class="product-card">
+  <img src="https://i.ibb.co/z4pysZ3/riovida.png" alt="RioVida">
+  <h3>RioVida</h3>
+  <p>Suplemento líquido com açaí, mirtilo, romã e fatores de transferência.</p>
+</div>
 
-<img class="product-image" src="https://i.ibb.co/4VRKTVM/transfer-factor-pot.png" alt="Produto Transfer Factor 4Life">
+<div class="product-card">
+  <img src="https://i.ibb.co/KX7NRpx/energy-gostix.png" alt="Energy GoStix">
+  <h3>Energy GoStix</h3>
+  <p>Energético natural com chá verde, erva-mate e colostro.</p>
+</div>
 
-  </div>  <footer>
+  </section>  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <p>Tire suas dúvidas ou faça seu pedido diretamente no WhatsApp.</p>
+    <a class="button" href="https://wa.me/5533998103853?text=Olá, quero mais informações sobre os produtos 4Life." target="_blank">Falar agora</a>
+  </section>  <footer>
     <p>&copy; 2025 imunidadefortalecida.com.br – Todos os direitos reservados.</p>
   </footer>
 </body>
