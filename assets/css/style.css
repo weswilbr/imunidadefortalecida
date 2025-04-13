@@ -20,6 +20,17 @@ header {
   padding-bottom: 6rem;
 }
 
+#beneficios {
+  background: url('../imagens/bg2.png') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+#beneficios h2, #beneficios ul {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
 header h1 {
   font-size: 2.4rem;
   margin-bottom: 1rem;
@@ -43,7 +54,7 @@ header a.button {
   margin-top: 2rem;
 }
 
-section:nth-child(even) {
+section:nth-child(even):not(#beneficios) {
   background-color: #f9f9f9;
 }
 
