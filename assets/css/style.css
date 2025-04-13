@@ -18,6 +18,51 @@ header {
   color: #fff;
   padding-top: 6rem;
   padding-bottom: 6rem;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+header p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+header a.button {
+  background-color: #25d366;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+header a.button:hover {
+  transform: scale(1.05);
+  background-color: #1ebd5a;
+}
+
+.scroll-down {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-top: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 #beneficios {
@@ -28,34 +73,7 @@ header {
 }
 
 #beneficios h2, #beneficios ul {
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-}
-
-header h1 {
-  font-size: 2.4rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
-
-header p {
-  font-size: 1.2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-}
-
-header a.button {
-  background-color: #25d366;
-  color: #fff;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1rem;
-  display: inline-block;
-  margin-top: 2rem;
-}
-
-section:nth-child(even):not(#beneficios) {
-  background-color: #f9f9f9;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 h2 {
@@ -111,5 +129,13 @@ footer {
     display: inline-block;
     width: 280px;
     margin: 1rem;
+  }
+
+  #beneficios ul {
+    columns: 2;
+    column-gap: 4rem;
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
   }
 }
