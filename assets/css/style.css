@@ -141,6 +141,54 @@ ul {
   font-size: 1.2rem;
 }
 
+.transfer-section {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.transfer-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.transfer-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.transfer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.transfer-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transfer-benefits li {
+  font-size: 1.05rem;
+  padding: 0.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+}
+
+.transfer-benefits i {
+  color: #00ffaa;
+  font-size: 1.2rem;
+}
+
 .product-card {
   background: #fff;
   color: #333;
