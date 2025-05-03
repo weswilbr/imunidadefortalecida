@@ -255,7 +255,6 @@ footer {
   padding: 1.5rem 1rem;
 }
 
-/* Direitos autorais ao final da página 4 */
 .copyright {
   font-size: 0.8rem;
   margin-top: 2rem;
@@ -286,4 +285,14 @@ footer {
 .whatsapp-float:hover {
   transform: scale(1.1);
   background-color: #1ebd5a;
+}
+
+/* Botão de compra nos cards */
+.button.compra {
+  background-color: #ff9800;
+  margin-top: 1.2rem;
+}
+
+.button.compra:hover {
+  background-color: #e68900;
 }
