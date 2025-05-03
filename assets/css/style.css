@@ -1,314 +1,78 @@
-/* RESET E BASE */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
-  background-color: #fff;
-  color: #333;
-  width: 100%;
-}
+/* RESET E BASE */ html, body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; background-color: #fff; color: #333; width: 100%; }
 
-header, section, footer {
-  width: 100%;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+header, section, footer { width: 100%; min-height: 100vh; padding: 2rem 1rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
-.content {
-  max-width: 700px;
-  padding: 0 1rem;
-  margin: 0 auto;
-}
+.content { max-width: 700px; padding: 0 1rem; margin: 0 auto; }
 
-/* HEADER */
-header {
-  background: url('../imagens/bg.png') no-repeat center center;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
+/* HEADER */ header { background: url('../imagens/bg.png') no-repeat center center; background-size: cover; color: #fff; position: relative; }
 
-header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
+header h1 { font-size: 2.2rem; margin-bottom: 1rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
 
-header p {
-  font-size: 1.1rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
+header p { font-size: 1.1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); line-height: 1.6; max-width: 600px; margin: 0 auto; }
 
-/* DESTAQUE */
-.destaque {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  display: inline-block;
-  margin-top: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+/* DESTAQUE */ .destaque { background-color: rgba(0, 0, 0, 0.4); padding: 1rem 1.2rem; border-radius: 12px; font-size: 1.2rem; font-weight: 500; display: inline-block; margin-top: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-/* BOTÕES */
-.button {
-  background-color: #25d366;
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-top: 2rem;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
+/* BOTÕES */ .button { background-color: #25d366; color: #fff; padding: 0.8rem 1.6rem; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; margin-top: 2rem; display: inline-block; transition: all 0.3s ease; }
 
-.button:hover {
-  transform: scale(1.05);
-  background-color: #1ebd5a;
-}
+.button:hover { transform: scale(1.05); background-color: #1ebd5a; }
 
-.button.compra {
-  background-color: #ff9800;
-  margin-top: auto;
-}
+.button.compra { background-color: #ff9800; margin-top: auto; }
 
-.button.compra:hover {
-  background-color: #e68900;
-}
+.button.compra:hover { background-color: #e68900; }
 
-/* ANIMAÇÃO SCROLL */
-.scroll-down {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  animation: bounce 2s infinite;
-}
+/* ANIMAÇÃO SCROLL */ .scroll-down { font-size: 1.5rem; margin-top: 2rem; animation: bounce 2s infinite; }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 
-/* SEÇÕES COM FUNDO */
-#beneficios {
-  background: url('../imagens/bg2.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
-}
+/* SEÇÕES COM FUNDO */ #beneficios { background: url('../imagens/bg2.png') no-repeat center center; background-size: cover; background-attachment: fixed; color: #fff; }
 
-#produtos {
-  background: url('../imagens/bg3.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
-}
+#produtos { background: url('../imagens/bg3.png') no-repeat center center; background-size: cover; background-attachment: fixed; color: #fff; }
 
-#contato {
-  background: url('../imagens/bg4.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
-}
+#contato { background: url('../imagens/bg4.png') no-repeat center center; background-size: cover; background-attachment: fixed; color: #fff; }
 
-/* TÍTULOS E TEXTOS */
-section h2, section ul, section p {
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  max-width: 700px;
-}
+/* TÍTULOS E TEXTOS */ section h2, section ul, section p { text-shadow: 1px 1px 4px rgba(0,0,0,0.5); max-width: 700px; }
 
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
+h2 { font-size: 1.8rem; margin-bottom: 1rem; }
 
-ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin: auto;
-  max-width: 600px;
-}
+ul { list-style: none; padding: 0; font-size: 1.05rem; line-height: 1.8; margin: auto; max-width: 600px; }
 
-/* LISTA COM ÍCONES */
-.benefits-list li {
-  text-align: left;
-  padding: 0.5rem 0;
-  font-size: 1.05rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+/* LISTA COM ÍCONES */ .benefits-list li { text-align: left; padding: 0.5rem 0; font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem; }
 
-.benefits-list i {
-  color: #00ffaa;
-  font-size: 1.2rem;
-}
+.benefits-list i { color: #00ffaa; font-size: 1.2rem; }
 
-/* SEÇÃO FATORES DE TRANSFERÊNCIA */
-.transfer-section {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 16px;
-  margin-top: 2rem;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
+/* SEÇÃO FATORES DE TRANSFERÊNCIA */ .transfer-section { background-color: rgba(0, 0, 0, 0.4); padding: 2rem; border-radius: 16px; margin-top: 2rem; backdrop-filter: blur(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
 
-.transfer-section h3,
-.transfer-section h4,
-.transfer-section p,
-.transfer-benefits li {
-  color: #fff;
-}
+.transfer-section h3, .transfer-section h4, .transfer-section p, .transfer-benefits li { color: #fff; }
 
-.transfer-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+.transfer-benefits { list-style: none; padding: 0; margin: 0; }
 
-.transfer-benefits li {
-  font-size: 1.05rem;
-  padding: 0.4rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
+.transfer-benefits li { font-size: 1.05rem; padding: 0.4rem 0; display: flex; align-items: center; gap: 0.6rem; }
 
-.transfer-benefits i {
-  color: #00ffaa;
-  font-size: 1.2rem;
-}
+.transfer-benefits i { color: #00ffaa; font-size: 1.2rem; }
 
-/* GRID DE PRODUTOS */
-.product-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  justify-content: center;
-  width: 100%;
-}
+/* GRID DE PRODUTOS */ .product-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; justify-content: center; width: 100%; }
 
-@media (min-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+@media (min-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
 
-@media (min-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+@media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* CARD DE PRODUTO COM ALINHAMENTO CENTRAL */
-.product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  height: 100%;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  position: relative;
-  max-width: 320px;
-  margin: auto;
-}
+/* CARD DE PRODUTO COM ALINHAMENTO CENTRAL */ .product-card { display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; padding: 1.5rem 1rem; height: 100%; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); position: relative; max-width: 320px; margin: auto; }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
+.product-card:hover { transform: translateY(-5px); }
 
-.product-card img {
-  width: 100%;
-  max-height: 240px;
-  object-fit: contain;
-  display: block;
-  margin-bottom: 1rem;
-}
+.product-card img { width: 100%; max-height: 240px; object-fit: contain; display: block; margin-bottom: 1rem; }
 
-.product-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
+.product-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; text-align: center; }
 
-.product-card p {
-  font-size: 0.95rem;
-  color: #555;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
+.product-card p { font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 1.5rem; }
 
-/* BADGE DE LANÇAMENTO */
-.badge-lancamento {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #e91e63;
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  z-index: 10;
-}
+/* BADGE DE LANÇAMENTO */ .badge-lancamento { position: absolute; top: 15px; right: 15px; background-color: #e91e63; color: white; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.3); z-index: 10; }
 
-/* RODAPÉ */
-footer {
-  background: #333;
-  color: #fff;
-  font-size: 0.9rem;
-  padding: 1.5rem 1rem;
-  text-align: center;
-}
+/* RODAPÉ */ footer { background: #333; color: #fff; font-size: 0.9rem; padding: 1.5rem 1rem; text-align: center; }
 
-.copyright {
-  font-size: 0.8rem;
-  margin-top: 2rem;
-  color: #eee;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-}
+.copyright { font-size: 0.8rem; margin-top: 2rem; color: #eee; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
 
-/* BOTÃO WHATSAPP FIXO */
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 28px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
+/* BOTÃO WHATSAPP FIXO */ .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50%; text-align: center; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  background-color: #1ebd5a;
-}
+.whatsapp-float:hover { transform: scale(1.1); background-color: #1ebd5a; }
+
