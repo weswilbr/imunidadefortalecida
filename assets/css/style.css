@@ -127,22 +127,6 @@ ul {
   max-width: 600px;
 }
 
-/* Benefícios com ícones */
-.benefits-list li {
-  text-align: left;
-  padding: 0.5rem 0;
-  font-size: 1.05rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.benefits-list i {
-  color: #00ffaa;
-  font-size: 1.2rem;
-}
-
-/* Seção de fatores de transferência */
 .transfer-section {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 2rem;
@@ -152,22 +136,10 @@ ul {
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
-.transfer-section h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.transfer-section p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #fff;
-  margin-bottom: 1.5rem;
-}
-
-.transfer-section h4 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+.transfer-section h3,
+.transfer-section h4,
+.transfer-section p,
+.transfer-benefits li {
   color: #fff;
 }
 
@@ -183,7 +155,6 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #fff;
 }
 
 .transfer-benefits i {
@@ -191,7 +162,6 @@ ul {
   font-size: 1.2rem;
 }
 
-/* Produtos - grade e cartão */
 .product-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -221,6 +191,7 @@ ul {
   text-align: center;
   max-width: 320px;
   margin: auto;
+  position: relative;
   transition: transform 0.2s ease;
 }
 
@@ -246,23 +217,31 @@ ul {
   color: #555;
 }
 
-/* Rodapé */
-footer {
-  background: #333;
-  color: #fff;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1.5rem 1rem;
+.button.compra {
+  background-color: #ff9800;
+  margin-top: 1.2rem;
 }
 
-.copyright {
-  font-size: 0.8rem;
-  margin-top: 2rem;
-  color: #eee;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+.button.compra:hover {
+  background-color: #e68900;
 }
 
-/* Botão flutuante do WhatsApp */
+/* Badge de lançamento */
+.badge-lancamento {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #e91e63;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+/* WhatsApp flutuante */
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -287,12 +266,17 @@ footer {
   background-color: #1ebd5a;
 }
 
-/* Botão de compra nos cards */
-.button.compra {
-  background-color: #ff9800;
-  margin-top: 1.2rem;
+footer {
+  background: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
 }
 
-.button.compra:hover {
-  background-color: #e68900;
+copyright {
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  color: #eee;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
