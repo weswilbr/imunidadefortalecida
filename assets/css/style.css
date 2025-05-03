@@ -198,7 +198,7 @@ ul {
 .product-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
   justify-content: center;
   width: 100%;
   padding: 1rem 0;
@@ -216,51 +216,49 @@ ul {
   }
 }
 
-/* CARD DE PRODUTO COM ESTILO APRIMORADO */
+/* CARD DE PRODUTO COM ESTILO COMPACTO E ELEGANTE */
 .product-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 2rem 1.2rem;
+  padding: 1.5rem;
   height: 100%;
   background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  max-width: 340px;
+  max-width: 320px;
   margin: auto;
   transition: all 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
   width: auto;
-  height: 220px;
+  height: 180px;
   object-fit: contain;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   display: block;
 }
 
 .product-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  margin-bottom: 0.4rem;
   color: #222;
 }
 
 .product-card p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #555;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
 }
 
 /* BADGE DE LANÇAMENTO */
