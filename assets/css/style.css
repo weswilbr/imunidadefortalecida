@@ -1,3 +1,4 @@
+/* RESET GERAL */
 html, body {
   margin: 0;
   padding: 0;
@@ -8,12 +9,13 @@ html, body {
   width: 100%;
 }
 
+/* ESTRUTURA */
 header, section, footer {
   width: 100%;
   min-height: 100vh;
   padding: 2rem 1rem;
-  text-align: center;
   box-sizing: border-box;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,20 +37,11 @@ header {
 
 header h1 {
   font-size: 2.2rem;
-  margin-bottom: 1rem;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
-header p {
-  font-size: 1.1rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  line-height: 1.6;
-  margin: 0 auto;
-  max-width: 600px;
-}
-
 .destaque {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0,0,0,0.4);
   padding: 1rem 1.2rem;
   border-radius: 12px;
   font-size: 1.2rem;
@@ -62,111 +55,33 @@ header p {
   background-color: #25d366;
   color: #fff;
   padding: 0.8rem 1.6rem;
-  text-decoration: none;
   border-radius: 8px;
+  text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   display: inline-block;
   transition: all 0.3s ease;
 }
 
 .button:hover {
-  transform: scale(1.05);
   background-color: #1ebd5a;
+  transform: scale(1.05);
 }
 
-.scroll-down {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  animation: bounce 2s infinite;
+.button.compra {
+  background-color: #ff9800;
+  margin-top: 1.2rem;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+.button.compra:hover {
+  background-color: #e68900;
 }
 
-#beneficios {
-  background: url('../imagens/bg2.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
-}
-
-#produtos {
-  background: url('../imagens/bg3.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
-}
-
-#contato {
-  background: url('../imagens/bg4.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
-}
-
-section h2, section ul, section p {
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  max-width: 700px;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin: auto;
-  max-width: 600px;
-}
-
-.transfer-section {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 16px;
-  margin-top: 2rem;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-
-.transfer-section h3,
-.transfer-section h4,
-.transfer-section p,
-.transfer-benefits li {
-  color: #fff;
-}
-
-.transfer-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.transfer-benefits li {
-  font-size: 1.05rem;
-  padding: 0.4rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.transfer-benefits i {
-  color: #00ffaa;
-  font-size: 1.2rem;
-}
-
+/* PRODUTOS */
 .product-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  justify-content: center;
   width: 100%;
 }
 
@@ -175,7 +90,6 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (min-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -186,25 +100,19 @@ ul {
   background: #fff;
   color: #333;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   padding: 1.5rem 1rem;
   text-align: center;
+  position: relative;
   max-width: 320px;
   margin: auto;
-  position: relative;
-  transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
 }
 
 .product-card img {
   width: 100%;
   max-height: 240px;
   object-fit: contain;
-  margin: 0 auto 1rem auto;
-  display: block;
+  margin-bottom: 1rem;
 }
 
 .product-card h3 {
@@ -217,16 +125,7 @@ ul {
   color: #555;
 }
 
-.button.compra {
-  background-color: #ff9800;
-  margin-top: 1.2rem;
-}
-
-.button.compra:hover {
-  background-color: #e68900;
-}
-
-/* Badge de lançamento */
+/* LANÇAMENTO */
 .badge-lancamento {
   position: absolute;
   top: 15px;
@@ -238,10 +137,9 @@ ul {
   font-size: 0.75rem;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  z-index: 10;
 }
 
-/* WhatsApp flutuante */
+/* WHATSAPP FLOAT */
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -263,18 +161,17 @@ ul {
 
 .whatsapp-float:hover {
   transform: scale(1.1);
-  background-color: #1ebd5a;
 }
 
+/* FOOTER */
 footer {
   background: #333;
   color: #fff;
   font-size: 0.9rem;
-  text-align: center;
   padding: 1.5rem 1rem;
 }
 
-copyright {
+.copyright {
   font-size: 0.8rem;
   margin-top: 2rem;
   color: #eee;
