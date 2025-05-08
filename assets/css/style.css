@@ -4,27 +4,26 @@ html, body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
-  background-color: #f4f7f6; /* Fundo base um pouco mais suave */
+  background-color: #f4f7f6;
   color: #333;
   width: 100%;
-  overflow-x: hidden; /* Evitar scroll horizontal */
+  overflow-x: hidden;
 }
 
-/* Estilo para o wrapper de conteúdo em seções com imagem de fundo */
+/* WRAPPER DE CONTEÚDO E OVERLAY */
 .content-wrapper {
   width: 100%;
-  min-height: auto; /* Removido min-height 100vh daqui */
-  padding: 5rem 1rem; /* Aumentar padding para dar respiro */
+  min-height: auto;
+  padding: 5rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative; /* Para o overlay */
+  position: relative;
 }
 
-/* Overlay para melhorar contraste em seções com imagem de fundo */
 .content-wrapper::before {
   content: "";
   position: absolute;
@@ -32,22 +31,22 @@ html, body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Overlay mais escuro */
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
 .content {
-  max-width: 900px; /* Aumentar um pouco o max-width */
+  max-width: 900px;
   padding: 0 1rem;
   margin: 0 auto;
-  position: relative; /* Para ficar acima do overlay */
+  position: relative;
   z-index: 2;
 }
 
 /* BARRA DE NAVEGAÇÃO */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   padding: 0.8rem 1rem;
   position: fixed;
@@ -64,12 +63,13 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #28a745; /* Verde 4Life */
+  color: #28a745;
   text-decoration: none;
 }
 .nav-logo strong {
@@ -77,29 +77,44 @@ html, body {
   font-weight: 500;
 }
 
-.navbar ul {
+.nav-toggler {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.nav-toggler i {
+  display: block; /* Para centralizar melhor o ícone */
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-collapse {
+  display: flex;
+}
+.navbar-collapse ul {
+  display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
 }
-
-.navbar ul li {
+.navbar-collapse ul li {
   margin-left: 1.5rem;
 }
-
-.navbar ul li a {
+.navbar-collapse ul li a {
   text-decoration: none;
   color: #555;
   font-weight: 500;
   transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  display: block;
 }
-
-.navbar ul li a:hover,
-.navbar ul li a.active { /* Classe active pode ser adicionada via JS */
+.navbar-collapse ul li a:hover,
+.navbar-collapse ul li a.active {
   color: #25d366;
 }
-
 
 /* HEADER */
 header {
@@ -107,41 +122,40 @@ header {
   background-size: cover;
   color: #fff;
   position: relative;
-  min-height: 100vh; /* Manter aqui para impacto inicial */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 6rem 1rem 2rem; /* Ajustar padding por causa da navbar */
+  padding: 6rem 1rem 2rem;
 }
-header::before { /* Overlay para o header */
+header::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.55); /* Levemente mais escuro */
   z-index: 1;
 }
 header .content {
-  z-index: 2; /* Conteúdo do header acima do overlay */
+  z-index: 2;
 }
 
-
 header h1 {
-  font-size: 2.8rem; /* Maior para mais impacto */
+  font-size: 2.8rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   font-weight: 700;
 }
 
-header p.destaque { /* Estilo já existe, apenas confirmando */
-  background-color: rgba(0, 0, 0, 0.5); /* Levemente mais transparente */
+header p.destaque {
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  font-size: 1.3rem; /* Um pouco maior */
+  font-size: 1.3rem;
   font-weight: 500;
   display: inline-block;
   margin-top: 1rem;
@@ -152,28 +166,31 @@ header p.destaque { /* Estilo já existe, apenas confirmando */
 
 /* BOTÕES */
 .button {
-  background-color: #25d366; /* Verde WhatsApp como padrão para CTAs de contato */
+  background-color: #25d366;
   color: #fff;
-  padding: 0.9rem 2rem; /* Botões maiores */
+  padding: 0.9rem 2rem;
   text-decoration: none;
-  border-radius: 30px; /* Mais arredondado */
+  border-radius: 30px;
   font-weight: 600;
   font-size: 1.05rem;
-  margin-top: 1.5rem; /* Ajuste de margem */
-  display: inline-block;
+  margin-top: 1.5rem;
+  display: inline-flex; /* Para alinhar ícone com texto */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Espaço entre texto e ícone */
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
 }
 
 .button:hover {
-  transform: translateY(-3px) scale(1.03); /* Efeito mais sutil */
+  transform: translateY(-3px) scale(1.03);
   box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
   background-color: #1ebd5a;
 }
 
-.button.cta-principal { /* Botão de maior destaque */
-  background-color: #ff9800; /* Laranja para destaque */
+.button.cta-principal {
+  background-color: #ff9800;
   padding: 1rem 2.5rem;
   font-size: 1.15rem;
 }
@@ -183,13 +200,9 @@ header p.destaque { /* Estilo já existe, apenas confirmando */
 }
 
 .button.compra {
-  background-color: #007bff; /* Azul para compras */
+  background-color: #007bff;
   margin-top: 1rem;
 }
-.button.compra i {
-  margin-left: 0.5rem;
-}
-
 .button.compra:hover {
   background-color: #0056b3;
   box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
@@ -197,65 +210,71 @@ header p.destaque { /* Estilo já existe, apenas confirmando */
 
 /* ANIMAÇÃO SCROLL */
 .scroll-down {
-  font-size: 2rem; /* Maior */
-  margin-top: 3rem; /* Mais espaço */
+  font-size: 2rem;
+  margin-top: 3rem;
   animation: bounce 2s infinite;
   color: #fff;
 }
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-15px); } /* Salto maior */
+  40% { transform: translateY(-15px); }
   60% { transform: translateY(-7px); }
 }
 
-/* SEÇÕES COM FUNDO */
-#beneficios {
-  background: url('../imagens/bg2.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed; /* Mantido, mas teste em mobile */
-  color: #fff; /* Texto principal branco nessas seções */
-}
-
-#produtos {
-  /* background: url('../imagens/bg3.png') no-repeat center center; */
-  /* background-size: cover; */
-  /* background-attachment: fixed; */
-  background-color: #e9ecef; /* Fundo sólido para melhor legibilidade dos cards */
-  color: #333; /* Texto escuro para contraste */
-}
-#produtos .content-wrapper::before {
-    background-color: transparent; /* Sem overlay para esta seção */
-}
-#produtos h2, #produtos p {
-    text-shadow: none; /* Sem sombra de texto aqui */
-    color: #333;
-}
-
-
-#contato {
-  background: url('../imagens/bg4.png') no-repeat center center;
+/* SEÇÕES COM FUNDO DE IMAGEM */
+#beneficios, #contato {
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
 }
-
-/* TÍTULOS E TEXTOS DAS SEÇÕES COM IMAGEM DE FUNDO */
-section h2, section p { /* Regra geral para seções com bg escuro */
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7); /* Sombra mais suave */
-  max-width: 800px; /* Aumentar um pouco */
+#beneficios {
+  background-image: url('../imagens/bg2.png');
+}
+#contato {
+  background-image: url('../imagens/bg4.png');
 }
 
-h2 {
-  font-size: 2.2rem; /* Títulos de seção maiores */
+/* SEÇÕES COM FUNDO SÓLIDO */
+#produtos, #depoimentos, #faq {
+  color: #333;
+}
+#produtos .content-wrapper::before,
+#depoimentos .content-wrapper.light-bg::before,
+#faq .content-wrapper::before {
+  background-color: transparent; /* Sem overlay para estas seções */
+}
+
+#produtos {
+  background-color: #e9ecef;
+}
+#depoimentos .content-wrapper.light-bg, #faq {
+  background-color: #fff;
+}
+
+/* TÍTULOS E TEXTOS GERAIS DAS SEÇÕES */
+section h2 {
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
+}
+/* Títulos e textos em seções com overlay escuro */
+#beneficios h2, #beneficios p,
+#contato h2, #contato p {
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+/* Títulos e textos em seções com fundo claro */
+#produtos h2, #produtos p,
+#depoimentos h2, #depoimentos p, #depoimentos h4,
+#faq h2, #faq p, #faq .faq-question {
+  text-shadow: none;
+  color: #333; /* Garante cor escura para legibilidade */
 }
 
 ul {
   list-style: none;
   padding: 0;
-  font-size: 1.1rem; /* Texto de lista um pouco maior */
+  font-size: 1.1rem;
   line-height: 1.8;
   margin: auto;
   max-width: 650px;
@@ -263,16 +282,15 @@ ul {
 
 /* SEÇÃO FATORES DE TRANSFERÊNCIA */
 .transfer-section {
-  background-color: rgba(20, 20, 20, 0.65); /* Mais escuro para melhor contraste do texto branco */
-  padding: 2.5rem; /* Mais padding interno */
+  background-color: rgba(20, 20, 20, 0.7); /* Ajuste no alfa para contraste */
+  padding: 2.5rem;
   border-radius: 16px;
   margin-top: 2rem;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
-
 .transfer-section h3 {
-  font-size: 1.8rem; /* Título interno maior */
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #fff;
 }
@@ -280,39 +298,33 @@ ul {
   font-size: 1.3rem;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
-  color: #00ffaa; /* Cor de destaque */
+  color: #00ffaa;
 }
 .transfer-section p,
 .transfer-benefits li {
-  color: #f0f0f0; /* Texto um pouco menos branco para suavizar */
+  color: #f0f0f0;
   font-size: 1.05rem;
 }
-
 .transfer-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   text-align: left;
 }
-
 .transfer-benefits li {
   padding: 0.6rem 0;
   display: flex;
   align-items: center;
-  gap: 0.8rem; /* Mais espaço para o ícone */
+  gap: 0.8rem;
 }
-
 .transfer-benefits i {
-  color: #00ffaa; /* Cor de destaque mantida */
-  font-size: 1.5rem; /* Ícones maiores */
-  flex-shrink: 0; /* Para não espremer o ícone */
+  color: #00ffaa;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 /* GRID DE PRODUTOS */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mais responsivo */
-  gap: 2rem; /* Aumentar gap */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   justify-content: center;
   width: 100%;
   padding: 1rem 0 3rem;
@@ -322,7 +334,6 @@ ul {
 .product-card {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */ /* Deixar o conteúdo fluir e o botão no final */
   align-items: center;
   text-align: center;
   padding: 1.5rem;
@@ -330,20 +341,17 @@ ul {
   border-radius: 16px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   position: relative;
-  /* max-width: 300px; */ /* Removido para o grid controlar */
   margin: 0 auto;
   transition: all 0.3s ease-out;
   border: 1px solid #eee;
 }
-
 .product-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
-
 .product-card img {
   width: auto;
-  height: 150px; /* Altura fixa para consistência */
+  height: 150px;
   object-fit: contain;
   margin-bottom: 1rem;
   display: block;
@@ -352,77 +360,69 @@ ul {
 .product-card:hover img {
   transform: scale(1.05);
 }
-
 .product-card h3 {
-  font-size: 1.15rem; /* Título do produto maior */
+  font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
   color: #222;
-  min-height: 2.4em; /* Para alinhar títulos de duas linhas */
+  min-height: 2.4em;
 }
-
-.product-card .product-description { /* Nova classe para descrição */
+.product-card .product-description {
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 1rem;
   line-height: 1.5;
-  flex-grow: 1; /* Para empurrar o botão para baixo */
-  min-height: 5.4em; /* aprox. 4 linhas */
+  flex-grow: 1;
+  min-height: 5.4em; /* Aprox. 4 linhas */
 }
-
 .product-card .product-price {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #28a745; /* Verde */
+  color: #28a745;
   margin-bottom: 1rem;
 }
 
 /* BADGE DE LANÇAMENTO */
 .badge-lancamento {
   position: absolute;
-  top: -10px; /* Levemente para fora */
+  top: -10px;
   left: -10px;
-  background-color: #e91e63; /* Rosa vibrante */
+  background-color: #e91e63;
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 20px 0 20px 0; /* Formato diferente */
+  border-radius: 20px 0 20px 0;
   font-size: 0.8rem;
   font-weight: 700;
   box-shadow: 0 3px 8px rgba(233,30,99,0.4);
   z-index: 10;
-  transform: rotate(-5deg); /* Pequena rotação */
+  transform: rotate(-5deg);
+}
+
+/* LAZY LOADING PLACEHOLDER */
+img.lazyload, img[data-src] {
+  background-color: #f0f0f0; /* Cor de fundo enquanto carrega */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+img.lazyloaded {
+  opacity: 1;
 }
 
 /* SEÇÃO DEPOIMENTOS */
-#depoimentos .content-wrapper.light-bg {
-  background-color: #fff; /* Fundo branco para esta seção */
-  color: #333;
-}
-#depoimentos .content-wrapper.light-bg::before {
-    background-color: transparent; /* Sem overlay */
-}
-
-#depoimentos h2, #depoimentos h4, #depoimentos p {
-    text-shadow: none;
-    color: #333;
-}
-
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
-
 .testimonial-card {
   background-color: #f8f9fa;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   text-align: left;
-  border-left: 5px solid #25d366; /* Detalhe de cor */
+  border-left: 5px solid #25d366;
 }
-
 .testimonial-avatar {
   width: 70px;
   height: 70px;
@@ -432,7 +432,6 @@ ul {
   border: 3px solid #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .testimonial-card p {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -440,7 +439,6 @@ ul {
   margin-bottom: 1rem;
   font-style: italic;
 }
-
 .testimonial-card h4 {
   font-size: 1rem;
   font-weight: 600;
@@ -448,9 +446,67 @@ ul {
   margin: 0;
 }
 
+/* SEÇÃO FAQ */
+.faq-grid {
+  max-width: 700px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.faq-question {
+  background-color: #f8f9fa;
+  color: #333;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-question:hover {
+  background-color: #e9ecef;
+}
+.faq-question i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+.faq-question[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  padding: 0 1.5rem;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.faq-answer.show {
+  max-height: 300px; /* Ajuste conforme necessário */
+  padding: 1.5rem;
+}
+.faq-answer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0;
+}
+.faq-answer p:not(:last-child) {
+  margin-bottom: 1rem;
+}
 
-/* RODAPÉ */
-/* A seção #contato agora serve como footer */
+/* SEÇÃO CONTATO (RODAPÉ) */
 #contato h2 {
   font-size: 2rem;
 }
@@ -462,97 +518,113 @@ ul {
   margin-right: auto;
   margin-bottom: 1.5rem;
 }
-
 .copyright {
-  font-size: 0.85rem;
-  margin-top: 3rem; /* Mais espaço */
+  font-size: 0.8rem;
+  margin-top: 3rem;
   color: #ddd;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  line-height: 1.5;
+  line-height: 1.4;
 }
-
 .social-icons {
   margin-top: 1.5rem;
 }
-
 .social-icons a {
   color: #fff;
   font-size: 1.8rem;
   margin: 0 0.7rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .social-icons a:hover {
   color: #25d366;
   transform: scale(1.1);
 }
-
 
 /* BOTÃO WHATSAPP FIXO */
 .whatsapp-float {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 25px; /* Um pouco mais para cima */
+  bottom: 25px;
   right: 25px;
   background-color: #25d366;
   color: white;
   border-radius: 50%;
   text-align: center;
-  font-size: 30px; /* Ícone maior */
+  font-size: 30px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease-out, background-color 0.2s;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s;
 }
-
 .whatsapp-float:hover {
-  transform: scale(1.12) rotate(10deg); /* Efeito mais divertido */
-  background-color: #1ebd5a;
+  transform: scale(1.15) rotate(5deg);
+  background-color: #1ad05f;
 }
 
 /* AJUSTES RESPONSIVOS */
+@media (max-width: 992px) { /* Ajuste breakpoint para tablet */
+    .product-card h3, .product-card .product-description {
+        min-height: auto; /* Remover altura mínima em tablets e mobile */
+    }
+}
+
 @media (max-width: 768px) {
+  header {
+    padding-top: 7rem; /* Ajuste por causa da navbar mobile */
+  }
   header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   header p.destaque {
-    font-size: 1.1rem;
-  }
-  .nav-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-  .navbar ul li {
-    margin-left: 0;
-    margin-bottom: 0.3rem;
-    width: 100%;
-    text-align: left;
-  }
-  .navbar ul li a {
-      display: block;
-      padding: 0.5rem 0;
+    font-size: 1.15rem;
   }
 
-  .product-card h3 {
-    min-height: auto; /* Remover altura mínima em mobile */
+  .nav-toggler {
+    display: block;
   }
-  .product-card .product-description {
-    min-height: auto; /* Remover altura mínima em mobile */
+  .navbar-collapse {
+    display: none; /* Inicialmente escondido */
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.99);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out;
+  }
+  .navbar-collapse.show {
+    display: flex;
+    max-height: calc(100vh - 60px); /* Altura máxima considerando a navbar */
+    padding: 1rem 0;
+    overflow-y: auto; /* Scroll se houver muitos itens */
+  }
+  .navbar-collapse ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar-collapse ul li {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-collapse ul li a {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .navbar-collapse ul li:last-child a {
+    border-bottom: none;
   }
 
   .content-wrapper {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem; /* Menos padding em mobile */
   }
-  h2 {
-    font-size: 1.8rem;
+  section h2 {
+    font-size: 1.9rem;
   }
   .transfer-section {
     padding: 1.5rem;
@@ -560,12 +632,38 @@ ul {
 }
 
 @media (max-width: 480px) {
-    .button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
-    }
-    .button.cta-principal {
-        padding: 0.9rem 2rem;
-        font-size: 1rem;
-    }
+  header h1 {
+    font-size: 1.8rem;
+  }
+  header p.destaque {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+  .button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .button.cta-principal {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+  section h2 {
+    font-size: 1.7rem;
+  }
+  .product-card .product-price {
+    font-size: 1rem;
+  }
+  .faq-question {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+  .faq-answer {
+    padding: 0 1rem;
+  }
+  .faq-answer.show {
+    padding: 1rem;
+  }
+  .faq-answer p {
+    font-size: 0.9rem;
+  }
 }
