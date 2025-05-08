@@ -4,28 +4,102 @@ html, body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
-  background-color: #fff;
+  background-color: #f4f7f6; /* Fundo base um pouco mais suave */
   color: #333;
   width: 100%;
+  overflow-x: hidden; /* Evitar scroll horizontal */
 }
 
-header, section, footer {
+/* Estilo para o wrapper de conteúdo em seções com imagem de fundo */
+.content-wrapper {
   width: 100%;
-  min-height: 100vh;
-  padding: 2rem 1rem;
+  min-height: auto; /* Removido min-height 100vh daqui */
+  padding: 5rem 1rem; /* Aumentar padding para dar respiro */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative; /* Para o overlay */
+}
+
+/* Overlay para melhorar contraste em seções com imagem de fundo */
+.content-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Overlay mais escuro */
+  z-index: 1;
 }
 
 .content {
-  max-width: 700px;
+  max-width: 900px; /* Aumentar um pouco o max-width */
   padding: 0 1rem;
   margin: 0 auto;
+  position: relative; /* Para ficar acima do overlay */
+  z-index: 2;
 }
+
+/* BARRA DE NAVEGAÇÃO */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 0.8rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.nav-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #28a745; /* Verde 4Life */
+  text-decoration: none;
+}
+.nav-logo strong {
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 1.5rem;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active { /* Classe active pode ser adicionada via JS */
+  color: #25d366;
+}
+
 
 /* HEADER */
 header {
@@ -33,88 +107,131 @@ header {
   background-size: cover;
   color: #fff;
   position: relative;
+  min-height: 100vh; /* Manter aqui para impacto inicial */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 1rem 2rem; /* Ajustar padding por causa da navbar */
 }
+header::before { /* Overlay para o header */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
+}
+header .content {
+  z-index: 2; /* Conteúdo do header acima do overlay */
+}
+
 
 header h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem; /* Maior para mais impacto */
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  font-weight: 700;
 }
 
-header p {
-  font-size: 1.1rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* DESTAQUE */
-.destaque {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 1rem 1.2rem;
+header p.destaque { /* Estilo já existe, apenas confirmando */
+  background-color: rgba(0, 0, 0, 0.5); /* Levemente mais transparente */
+  padding: 1rem 1.5rem;
   border-radius: 12px;
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Um pouco maior */
   font-weight: 500;
   display: inline-block;
   margin-top: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  line-height: 1.7;
 }
 
 /* BOTÕES */
 .button {
-  background-color: #25d366;
+  background-color: #25d366; /* Verde WhatsApp como padrão para CTAs de contato */
   color: #fff;
-  padding: 0.8rem 1.6rem;
+  padding: 0.9rem 2rem; /* Botões maiores */
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 30px; /* Mais arredondado */
   font-weight: 600;
-  font-size: 1rem;
-  margin-top: 2rem;
+  font-size: 1.05rem;
+  margin-top: 1.5rem; /* Ajuste de margem */
   display: inline-block;
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .button:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px) scale(1.03); /* Efeito mais sutil */
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
   background-color: #1ebd5a;
 }
 
+.button.cta-principal { /* Botão de maior destaque */
+  background-color: #ff9800; /* Laranja para destaque */
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
+}
+.button.cta-principal:hover {
+  background-color: #e68900;
+  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.4);
+}
+
 .button.compra {
-  background-color: #ff9800;
-  margin-top: 1.2rem;
+  background-color: #007bff; /* Azul para compras */
+  margin-top: 1rem;
+}
+.button.compra i {
+  margin-left: 0.5rem;
 }
 
 .button.compra:hover {
-  background-color: #e68900;
+  background-color: #0056b3;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
 }
 
 /* ANIMAÇÃO SCROLL */
 .scroll-down {
-  font-size: 1.5rem;
-  margin-top: 2rem;
+  font-size: 2rem; /* Maior */
+  margin-top: 3rem; /* Mais espaço */
   animation: bounce 2s infinite;
+  color: #fff;
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); } /* Salto maior */
+  60% { transform: translateY(-7px); }
 }
 
 /* SEÇÕES COM FUNDO */
 #beneficios {
   background: url('../imagens/bg2.png') no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
+  background-attachment: fixed; /* Mantido, mas teste em mobile */
+  color: #fff; /* Texto principal branco nessas seções */
 }
 
 #produtos {
-  background: url('../imagens/bg3.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #fff;
+  /* background: url('../imagens/bg3.png') no-repeat center center; */
+  /* background-size: cover; */
+  /* background-attachment: fixed; */
+  background-color: #e9ecef; /* Fundo sólido para melhor legibilidade dos cards */
+  color: #333; /* Texto escuro para contraste */
 }
+#produtos .content-wrapper::before {
+    background-color: transparent; /* Sem overlay para esta seção */
+}
+#produtos h2, #produtos p {
+    text-shadow: none; /* Sem sombra de texto aqui */
+    color: #333;
+}
+
 
 #contato {
   background: url('../imagens/bg4.png') no-repeat center center;
@@ -123,195 +240,332 @@ header p {
   color: #fff;
 }
 
-/* TÍTULOS E TEXTOS */
-section h2, section ul, section p {
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  max-width: 700px;
+/* TÍTULOS E TEXTOS DAS SEÇÕES COM IMAGEM DE FUNDO */
+section h2, section p { /* Regra geral para seções com bg escuro */
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7); /* Sombra mais suave */
+  max-width: 800px; /* Aumentar um pouco */
 }
 
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem; /* Títulos de seção maiores */
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 ul {
   list-style: none;
   padding: 0;
-  font-size: 1.05rem;
+  font-size: 1.1rem; /* Texto de lista um pouco maior */
   line-height: 1.8;
   margin: auto;
-  max-width: 600px;
-}
-
-/* LISTA COM ÍCONES */
-.benefits-list li {
-  text-align: left;
-  padding: 0.5rem 0;
-  font-size: 1.05rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.benefits-list i {
-  color: #00ffaa;
-  font-size: 1.2rem;
+  max-width: 650px;
 }
 
 /* SEÇÃO FATORES DE TRANSFERÊNCIA */
 .transfer-section {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
+  background-color: rgba(20, 20, 20, 0.65); /* Mais escuro para melhor contraste do texto branco */
+  padding: 2.5rem; /* Mais padding interno */
   border-radius: 16px;
   margin-top: 2rem;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-.transfer-section h3,
-.transfer-section h4,
+.transfer-section h3 {
+  font-size: 1.8rem; /* Título interno maior */
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.transfer-section h4 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #00ffaa; /* Cor de destaque */
+}
 .transfer-section p,
 .transfer-benefits li {
-  color: #fff;
+  color: #f0f0f0; /* Texto um pouco menos branco para suavizar */
+  font-size: 1.05rem;
 }
 
 .transfer-benefits {
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: left;
 }
 
 .transfer-benefits li {
-  font-size: 1.05rem;
-  padding: 0.4rem 0;
+  padding: 0.6rem 0;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem; /* Mais espaço para o ícone */
 }
 
 .transfer-benefits i {
-  color: #00ffaa;
-  font-size: 1.2rem;
+  color: #00ffaa; /* Cor de destaque mantida */
+  font-size: 1.5rem; /* Ícones maiores */
+  flex-shrink: 0; /* Para não espremer o ícone */
 }
 
 /* GRID DE PRODUTOS */
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mais responsivo */
+  gap: 2rem; /* Aumentar gap */
   justify-content: center;
   width: 100%;
   padding: 1rem 0 3rem;
 }
 
-@media (min-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* CARD DE PRODUTO COM ESTILO COMPACTO E ELEGANTE */
+/* CARD DE PRODUTO */
 .product-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */ /* Deixar o conteúdo fluir e o botão no final */
   align-items: center;
   text-align: center;
-  padding: 1.2rem;
+  padding: 1.5rem;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   position: relative;
-  max-width: 300px;
+  /* max-width: 300px; */ /* Removido para o grid controlar */
   margin: 0 auto;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
+  border: 1px solid #eee;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 .product-card img {
   width: auto;
-  height: 160px;
+  height: 150px; /* Altura fixa para consistência */
   object-fit: contain;
   margin-bottom: 1rem;
   display: block;
+  transition: transform 0.3s ease;
+}
+.product-card:hover img {
+  transform: scale(1.05);
 }
 
 .product-card h3 {
-  font-size: 1.05rem;
+  font-size: 1.15rem; /* Título do produto maior */
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
   color: #222;
+  min-height: 2.4em; /* Para alinhar títulos de duas linhas */
 }
 
-.product-card p {
+.product-card .product-description { /* Nova classe para descrição */
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 1rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  flex-grow: 1; /* Para empurrar o botão para baixo */
+  min-height: 5.4em; /* aprox. 4 linhas */
+}
+
+.product-card .product-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #28a745; /* Verde */
+  margin-bottom: 1rem;
 }
 
 /* BADGE DE LANÇAMENTO */
 .badge-lancamento {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #e91e63;
+  top: -10px; /* Levemente para fora */
+  left: -10px;
+  background-color: #e91e63; /* Rosa vibrante */
   color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px 0 20px 0; /* Formato diferente */
+  font-size: 0.8rem;
   font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 8px rgba(233,30,99,0.4);
   z-index: 10;
+  transform: rotate(-5deg); /* Pequena rotação */
 }
 
+/* SEÇÃO DEPOIMENTOS */
+#depoimentos .content-wrapper.light-bg {
+  background-color: #fff; /* Fundo branco para esta seção */
+  color: #333;
+}
+#depoimentos .content-wrapper.light-bg::before {
+    background-color: transparent; /* Sem overlay */
+}
+
+#depoimentos h2, #depoimentos h4, #depoimentos p {
+    text-shadow: none;
+    color: #333;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;
+  border-left: 5px solid #25d366; /* Detalhe de cor */
+}
+
+.testimonial-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.testimonial-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.testimonial-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+
 /* RODAPÉ */
-footer {
-  background: #333;
-  color: #fff;
-  font-size: 0.9rem;
-  padding: 1.5rem 1rem;
-  text-align: center;
+/* A seção #contato agora serve como footer */
+#contato h2 {
+  font-size: 2rem;
+}
+#contato p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
 }
 
 .copyright {
-  font-size: 0.8rem;
-  margin-top: 2rem;
-  color: #eee;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  font-size: 0.85rem;
+  margin-top: 3rem; /* Mais espaço */
+  color: #ddd;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  line-height: 1.5;
 }
+
+.social-icons {
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0 0.7rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #25d366;
+  transform: scale(1.1);
+}
+
 
 /* BOTÃO WHATSAPP FIXO */
 .whatsapp-float {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px; /* Um pouco mais para cima */
+  right: 25px;
   background-color: #25d366;
   color: white;
   border-radius: 50%;
   text-align: center;
-  font-size: 28px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-size: 30px; /* Ícone maior */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease-out, background-color 0.2s;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
+  transform: scale(1.12) rotate(10deg); /* Efeito mais divertido */
   background-color: #1ebd5a;
+}
+
+/* AJUSTES RESPONSIVOS */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p.destaque {
+    font-size: 1.1rem;
+  }
+  .nav-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .navbar ul li {
+    margin-left: 0;
+    margin-bottom: 0.3rem;
+    width: 100%;
+    text-align: left;
+  }
+  .navbar ul li a {
+      display: block;
+      padding: 0.5rem 0;
+  }
+
+  .product-card h3 {
+    min-height: auto; /* Remover altura mínima em mobile */
+  }
+  .product-card .product-description {
+    min-height: auto; /* Remover altura mínima em mobile */
+  }
+
+  .content-wrapper {
+    padding: 3rem 1rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .transfer-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    .button.cta-principal {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
 }
