@@ -23,6 +23,7 @@ html, body {
   text-align: center;
   position: relative;
 }
+/* Overlay padrão para seções com fundo de imagem */
 .content-wrapper::before {
   content: "";
   position: absolute;
@@ -30,8 +31,15 @@ html, body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6); /* Overlay escuro */
   z-index: 1;
+}
+/* Remove overlay para seções com fundo sólido ou claro */
+#produtos .content-wrapper::before,
+#depoimentos .content-wrapper.light-bg::before,
+#faq .content-wrapper::before,
+#empreenda .content-wrapper::before { /* Removido overlay para a nova seção */
+  background-color: transparent;
 }
 .content {
   max-width: 900px;
@@ -191,16 +199,17 @@ header p.destaque {
   background-color: #1ebd5a;
 }
 .button.cta-principal {
-  background-color: #ff9800;
+  background-color: #ff9800; /* Botão laranja para CTAs principais */
+  color: #fff;
   padding: 1rem 2.5rem;
   font-size: 1.15rem;
 }
 .button.cta-principal:hover {
   background-color: #e68900;
-  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.4);
+  box-shadow: 0 6-6px 15px rgba(255, 152, 0, 0.4);
 }
 .button.compra {
-  background-color: #007bff;
+  background-color: #007bff; /* Botão azul para compra */
   margin-top: 1rem;
 }
 .button.compra:hover {
@@ -224,22 +233,18 @@ header p.destaque {
 #beneficios, #contato {
   background-size: cover;
   background-attachment: fixed;
-  color: #fff;
+  color: #fff; /* Cor do texto sobre fundo escuro */
 }
 #beneficios { background-image: url('../imagens/bg2.png'); }
 #contato { background-image: url('../imagens/bg4.png'); }
 
-/* SEÇÕES COM FUNDO SÓLIDO */
-#produtos, #depoimentos .content-wrapper.light-bg, #faq .content-wrapper {
-  color: #333;
+/* SEÇÕES COM FUNDO SÓLIDO OU CLARO */
+#produtos, #depoimentos .content-wrapper.light-bg, #faq .content-wrapper, #empreenda {
+  color: #333; /* Cor do texto sobre fundo claro */
 }
-#produtos .content-wrapper::before,
-#depoimentos .content-wrapper.light-bg::before,
-#faq .content-wrapper::before {
-  background-color: transparent;
-}
-#produtos { background-color: #e9ecef; }
-#depoimentos .content-wrapper.light-bg, #faq .content-wrapper { background-color: #fff; }
+#produtos { background-color: #e9ecef; } /* Cinza claro */
+#depoimentos .content-wrapper.light-bg, #faq .content-wrapper { background-color: #fff; } /* Branco */
+#empreenda { background-color: #d4edda; } /* Verde claro, distinto */
 
 
 /* TÍTULOS E TEXTOS GERAIS DAS SEÇÕES */
@@ -248,26 +253,30 @@ section h2 {
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
+/* Textos com sombra nas seções com fundo de imagem */
 #beneficios h2, #beneficios p,
 #contato h2, #contato p {
   text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  color: #fff; /* Garante que o texto seja branco nessas seções */
 }
+/* Textos sem sombra nas seções com fundo claro */
 #produtos h2, #produtos p,
 #depoimentos h2, #depoimentos p, #depoimentos h4,
-#faq h2, #faq p, #faq .faq-question {
+#faq h2, #faq p, #faq .faq-question,
+#empreenda h2, #empreenda p { /* Adicionado a nova seção */
   text-shadow: none;
-  color: #333;
+  color: #333; /* Garante que o texto seja escuro nessas seções */
 }
 ul { list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.8; margin: auto; max-width: 650px; }
 
-/* SEÇÃO FATORES DE TRANSFERÊNCIA */
+/* SEÇÃO FATORES DE TRANSFERÊNCIA (SOBRE IMAGEM) */
 .transfer-section {
-  background-color: rgba(20, 20, 20, 0.7);
+  background-color: rgba(20, 20, 20, 0.7); /* Fundo semi-transparente escuro */
   padding: 2.5rem; border-radius: 16px; margin-top: 2rem;
   backdrop-filter: blur(6px); box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 .transfer-section h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #fff; }
-.transfer-section h4 { font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 0.8rem; color: #00ffaa; }
+.transfer-section h4 { font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 0.8rem; color: #00ffaa; } /* Destaque verde neon */
 .transfer-section p, .transfer-benefits li { color: #f0f0f0; font-size: 1.05rem; }
 .transfer-benefits { text-align: left; }
 .transfer-benefits li { padding: 0.6rem 0; display: flex; align-items: center; gap: 0.8rem; }
@@ -296,7 +305,7 @@ ul { list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.8; margin: 
 }
 .product-card .product-description {
   font-size: 0.9rem; color: #555; margin-bottom: 1rem;
-  line-height: 1.5; flex-grow: 1; min-height: 5.4em;
+  line-height: 1.5; flex-grow: 1; min-height: 5.4em; /* Mantido min-height para uniformidade */
 }
 .product-card .product-price {
   font-size: 1.1rem; font-weight: 600; color: #28a745; margin-bottom: 1rem;
@@ -308,10 +317,20 @@ ul { list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.8; margin: 
 }
 
 /* LAZY LOADING PLACEHOLDER */
-img.lazyload, img[data-src] {
-  background-color: #f0f0f0; opacity: 0; transition: opacity 0.4s ease-in-out;
+img.lazyload, img[data-src]:not(.lazyloaded) { /* Estilo aplicado antes de carregar */
+  background-color: #f0f0f0;
+  opacity: 0; /* Inicia invisível */
+  transition: opacity 0.4s ease-in-out;
 }
-img.lazyloaded { opacity: 1; }
+img.lazyloaded { /* Estilo aplicado após carregar */
+  opacity: 1;
+}
+/* Adicionado para garantir que o avatar do depoimento tenha o placeholder */
+.testimonial-avatar[data-src]:not(.lazyloaded) {
+    background-color: #ccc; /* Um cinza mais escuro para o placeholder do avatar */
+    border: 3px solid #f0f0f0; /* Borda clara */
+}
+
 
 /* SEÇÃO DEPOIMENTOS */
 .testimonial-grid {
@@ -321,7 +340,7 @@ img.lazyloaded { opacity: 1; }
 .testimonial-card {
   background-color: #f8f9fa; padding: 2rem; border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;
-  border-left: 5px solid #25d366;
+  border-left: 5px solid #25d366; /* Borda de destaque verde */
 }
 .testimonial-avatar {
   width: 70px; height: 70px; border-radius: 50%; object-fit: cover;
@@ -350,23 +369,47 @@ img.lazyloaded { opacity: 1; }
 .faq-question[aria-expanded="true"] i { transform: rotate(180deg); }
 
 .faq-answer {
-  padding: 0 1.5rem; /* Padding lateral aplicado, vertical será na classe .show ou via JS */
+  padding: 0 1.5rem;
   background-color: white;
   max-height: 0;
-  overflow: hidden; /* Mantém escondido inicialmente */
+  overflow: hidden;
   transition: max-height 0.35s ease-in-out, padding-top 0.35s ease-in-out, padding-bottom 0.35s ease-in-out;
-  /* padding-top e padding-bottom serão controlados pela classe .show ou JS se usar essa abordagem */
 }
 
 .faq-answer.show {
-  max-height: 800px; /* Valor generoso para acomodar respostas longas */
-  padding-top: 1.5rem;    /* Padding vertical quando aberto */
-  padding-bottom: 1.5rem; /* Padding vertical quando aberto */
-  overflow-y: auto; /* Permite scroll DENTRO da caixa de resposta se o conteúdo exceder max-height */
+  max-height: 800px; /* Valor generoso */
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  overflow-y: auto;
 }
 
 .faq-answer p { font-size: 1rem; line-height: 1.6; color: #555; margin-bottom: 0; }
 .faq-answer p:not(:last-child) { margin-bottom: 1rem; }
+
+/* NOVA SEÇÃO EMPREENDA */
+#empreenda {
+  background-color: #d4edda; /* Um verde claro agradável */
+  color: #333; /* Texto escuro */
+  padding: 5rem 1rem;
+  text-align: center;
+}
+#empreenda .content-wrapper::before {
+  background-color: transparent; /* Remove overlay */
+}
+#empreenda h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #28a745; /* Verde mais escuro para o título */
+}
+#empreenda p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+/* O botão dentro de #empreenda usará o estilo .button.cta-principal */
+
 
 /* SEÇÃO CONTATO (RODAPÉ) */
 #contato h2 { font-size: 2rem; }
@@ -375,7 +418,7 @@ img.lazyloaded { opacity: 1; }
   margin-left: auto; margin-right: auto; margin-bottom: 1.5rem;
 }
 .copyright {
-  font-size: 0.8rem; margin-top: 3rem; color: #ddd;
+  font-size: 0.8rem; margin-top: 3rem; color: #ddd; /* Cor clara para o copyright */
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5); line-height: 1.4;
 }
 .social-icons { margin-top: 1.5rem; }
@@ -383,7 +426,7 @@ img.lazyloaded { opacity: 1; }
   color: #fff; font-size: 1.8rem; margin: 0 0.7rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-.social-icons a:hover { color: #25d366; transform: scale(1.1); }
+.social-icons a:hover { color: #25d366; transform: scale(1.1); } /* Ícones ficam verdes no hover */
 
 /* BOTÃO WHATSAPP FIXO */
 .whatsapp-float {
@@ -397,6 +440,7 @@ img.lazyloaded { opacity: 1; }
 
 /* AJUSTES RESPONSIVOS */
 @media (max-width: 992px) {
+    /* Remove min-height para descrições de produtos em telas menores */
     .product-card h3, .product-card .product-description { min-height: auto; }
 }
 
@@ -420,21 +464,26 @@ img.lazyloaded { opacity: 1; }
   .navbar-collapse ul li:last-child a { border-bottom: none; }
   .navbar-collapse ul li a:hover { background-color: #f8f8f8; color: #25d366; }
 
+  /* Overlay quando o menu off-canvas está aberto */
   body.mobile-menu-open::before {
     content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.5); z-index: 1000;
     opacity: 0; transition: opacity 0.3s ease;
   }
   body.mobile-menu-open.overlay-active::before { opacity: 1; }
-  body.mobile-menu-open { overflow: hidden; }
+  body.mobile-menu-open { overflow: hidden; } /* Impede scroll do fundo */
 
-  header { padding-top: 5rem; /* Ajuste para navbar fixa */ }
+  header { padding-top: 5rem; /* Ajuste para navbar fixa em mobile */ }
   header h1 { font-size: 2.2rem; }
   header p.destaque { font-size: 1.15rem; }
 
-  .content-wrapper { padding: 4rem 1rem; }
-  section h2 { font-size: 1.9rem; }
-  .transfer-section { padding: 1.5rem; }
+  .content-wrapper { padding: 4rem 1rem; } /* Ajusta padding geral das seções */
+  section h2 { font-size: 1.9rem; } /* Ajusta tamanho dos títulos das seções */
+  .transfer-section { padding: 1.5rem; } /* Ajusta padding da seção de transferência */
+
+  /* Ajustes específicos para a nova seção em mobile */
+  #empreenda h2 { font-size: 1.9rem; }
+  #empreenda p { font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
@@ -445,9 +494,13 @@ img.lazyloaded { opacity: 1; }
   section h2 { font-size: 1.7rem; }
   .product-card .product-price { font-size: 1rem; }
   .faq-question { font-size: 1rem; padding: 0.8rem 1rem; }
-  .faq-answer { padding-left: 1rem; padding-right: 1rem; } /* Ajusta padding lateral para mobile */
+  .faq-answer { padding-left: 1rem; padding-right: 1rem; }
   .faq-answer.show {
-    padding-top: 1rem; padding-bottom: 1rem; /* Ajusta padding vertical para mobile */
+    padding-top: 1rem; padding-bottom: 1rem;
   }
   .faq-answer p { font-size: 0.9rem; }
+
+   /* Ajustes específicos para a nova seção em telas menores */
+  #empreenda h2 { font-size: 1.7rem; }
+  #empreenda p { font-size: 0.95rem; }
 }
