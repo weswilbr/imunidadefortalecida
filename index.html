@@ -26,7 +26,6 @@
           <li><a href="#produtos" class="nav-link">Produtos</a></li>
           <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
           <li><a href="#faq" class="nav-link">Dúvidas</a></li>
-          <!-- NOVO LINK PARA A SEÇÃO DE EMPREENDEDORISMO -->
           <li><a href="#empreenda" class="nav-link">Empreenda</a></li>
           <li><a href="#contato" class="nav-link">Contato</a></li>
         </ul>
@@ -278,7 +277,6 @@
     </div>
   </section>
 
-  <!-- NOVA SEÇÃO PARA EMPREENDEDORISMO -->
   <section id="empreenda">
     <div class="content-wrapper">
       <div class="content">
@@ -288,7 +286,6 @@
       </div>
     </div>
   </section>
-  <!-- FIM DA NOVA SEÇÃO -->
 
   <section id="contato">
     <div class="content-wrapper">
@@ -301,8 +298,9 @@
           Distribuidores Independentes 4Life. Este não é o site oficial da 4Life Research. Os produtos 4Life não se destinam a diagnosticar, tratar, curar ou prevenir qualquer doença.
         </p>
         <div class="social-icons">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram"><i class="bi bi-instagram"></i></a>
+          <!-- LINKS ATUALIZADOS -->
+          <a href="https://www.facebook.com/share/1APQeSqvcD/" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/empreendedor.tf?igsh=MXZ1bDUweTE1dWo2bA==" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -319,7 +317,7 @@
     // --- Script para o Menu Hambúrguer Off-Canvas ---
     const navToggler = document.querySelector('.nav-toggler');
     const navMenu = document.querySelector('.navbar-collapse');
-    const navLinks = document.querySelectorAll('.nav-link'); // Seleciona todos os links com a classe nav-link, incluindo o novo
+    const navLinks = document.querySelectorAll('.nav-link');
     const bodyEl = document.body;
 
     if (navToggler && navMenu) {
@@ -340,23 +338,20 @@
         icon.classList.toggle('bi-x');
       });
 
-      // Fecha o menu ao clicar em qualquer link de navegação
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
           if (navMenu.classList.contains('show')) {
-            navToggler.click(); // Simula um clique no botão para fechar
+            navToggler.click();
           }
         });
       });
 
-      // Fecha o menu e overlay clicando fora (no overlay)
       bodyEl.addEventListener('click', function(event) {
         if (bodyEl.classList.contains('mobile-menu-open') && bodyEl.classList.contains('overlay-active')) {
           const isClickInsideMenu = navMenu.contains(event.target);
           const isClickOnToggler = navToggler.contains(event.target);
-          // Se o clique não foi dentro do menu e não foi no toggler
           if (!isClickInsideMenu && !isClickOnToggler) {
-            navToggler.click(); // Simula um clique no botão para fechar
+            navToggler.click();
           }
         }
       });
@@ -369,19 +364,15 @@
     if (navbar) {
       window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        // Oculta a navbar ao rolar para baixo, exceto se estiver muito no topo
-        if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight + 20) { // Adicionado um buffer de 20px
+         if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight + 20) { // Adicionado buffer
           navbar.classList.add('navbar-hidden');
         } else {
-           // Mostra a navbar ao rolar para cima ou se estiver perto do topo
           navbar.classList.remove('navbar-hidden');
         }
-        // Adiciona classe 'scrolled' para mudar estilo da navbar (ex: fundo sólido)
         navbar.classList.toggle('scrolled', scrollTop > 50);
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Previne que lastScrollTop se torne negativo
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       }, false);
     }
-
 
     // --- Script para o FAQ Acordeão ---
     const faqItems = document.querySelectorAll('.faq-item');
@@ -392,23 +383,6 @@
         if (questionButton && answerPanel && icon) {
             questionButton.addEventListener('click', () => {
                 const isExpanded = questionButton.getAttribute('aria-expanded') === 'true';
-
-                // Fecha outros FAQs abertos, se desejar que apenas um fique aberto por vez
-                // faqItems.forEach(otherItem => {
-                //     if (otherItem !== item) {
-                //         const otherButton = otherItem.querySelector('.faq-question');
-                //         const otherAnswer = otherItem.querySelector('.faq-answer');
-                //         const otherIcon = otherButton.querySelector('i');
-                //         if (otherButton.getAttribute('aria-expanded') === 'true') {
-                //             otherButton.setAttribute('aria-expanded', 'false');
-                //             otherAnswer.classList.remove('show');
-                //             otherIcon.classList.remove('bi-chevron-up');
-                //             otherIcon.classList.add('bi-chevron-down');
-                //         }
-                //     }
-                // });
-
-                // Alterna o FAQ clicado
                 questionButton.setAttribute('aria-expanded', String(!isExpanded)); // Booleano para string
                 answerPanel.classList.toggle('show');
                 icon.classList.toggle('bi-chevron-down');
@@ -418,15 +392,12 @@
     });
 
     // --- Lazy Loading ---
-    // Verifica se o navegador suporta lazy loading nativo
     if ('loading' in HTMLImageElement.prototype) {
         document.querySelectorAll('img[data-src]').forEach(img => {
             img.src = img.dataset.src;
-            // Opcional: Adicionar uma classe quando carregada para transições
             img.onload = () => img.classList.add('lazyloaded');
         });
     } else {
-        // Fallback para navegadores mais antigos usando IntersectionObserver
         let lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
         if ("IntersectionObserver" in window) {
             let lazyImageObserver = new IntersectionObserver((entries, observer) => {
@@ -434,17 +405,16 @@
                     if (entry.isIntersecting) {
                         let lazyImage = entry.target;
                         lazyImage.src = lazyImage.dataset.src;
-                        lazyImage.classList.add("lazyloaded"); // Adiciona classe
+                        lazyImage.classList.add("lazyloaded");
                         observer.unobserve(lazyImage);
                     }
                 });
             });
             lazyImages.forEach(lazyImage => lazyImageObserver.observe(lazyImage));
         } else {
-            // Fallback simples para navegadores muito antigos (carrega todas ao iniciar)
             lazyImages.forEach(lazyImage => {
                 lazyImage.src = lazyImage.dataset.src;
-                lazyImage.classList.add("lazyloaded"); // Adiciona classe
+                lazyImage.classList.add("lazyloaded");
             });
         }
     }
